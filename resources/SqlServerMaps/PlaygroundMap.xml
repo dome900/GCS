@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.omicron.NotWorkingProject.model.DAO.PlayDAO">
+	<resultMap
+		type="com.omicron.NotWorkingProject.model.object.Playground"
+		id="PlaygroundMap">
+		<result column="ID_UTENTE" property="idUtente" />
+		<result column="NOME_UTENTE" property="nomeUtente" />
+		<result column="COGNOME_UTENTE" property="cognomeUtente" />
+		<result column="INDIRIZZO_UTENTE" property="indirizzoUtente" />
+		<result column="CODICE_FISCALE_UTENTE"
+			property="codiceFiscaleUtente" />
+		<result column="CELLULARE_UTENTE" property="cellulareUtente" />
+		<result column="EMAIL_UTENTE" property="emailUtente" />
+
+	</resultMap>
+
+	<select id="getLista" resultMap="PlaygroundMap">
+		select ID_UTENTE,
+		NOME_UTENTE,COGNOME_UTENTE,INDIRIZZO_UTENTE,CODICE_FISCALE_UTENTE,CELLULARE_UTENTE,EMAIL_UTENTE
+		from [PROVA_PROGETTO].[dbo].[ANAGRAFICA_UTENTI]
+	</select>
+
+	<select id="findById" resultMap="PlaygroundMap"
+		parameterType="int">
+		select ID_UTENTE,
+		NOME_UTENTE,COGNOME_UTENTE,INDIRIZZO_UTENTE,CODICE_FISCALE_UTENTE,CELLULARE_UTENTE,EMAIL_UTENTE
+		from [PROVA_PROGETTO].[dbo].[ANAGRAFICA_UTENTI] where ID_UTENTE =
+		(#{id})
+	</select>
+
+	<select id="isUserExist" resultMap="PlaygroundMap"
+		parameterType="com.omicron.NotWorkingProject.model.object.Playground">
+		select
+		NOME_UTENTE, COGNOME_UTENTE, INDIRIZZO_UTENTE,
+		CODICE_FISCALE_UTENTE,
+		CELLULARE_UTENTE, EMAIL_UTENTE
+		from
+		[PROVA_PROGETTO].[dbo].[ANAGRAFICA_UTENTI] where
+		NOME_UTENTE=#{nomeUtente} and COGNOME_UTENTE=#{cognomeUtente} and
+		INDIRIZZO_UTENTE=#{indirizzoUtente} and
+		CODICE_FISCALE_UTENTE=#{codiceFiscaleUtente} and
+		CELLULARE_UTENTE=#{cellulareUtente} and EMAIL_UTENTE=#{emailUtente}
+	</select>
+
+	<select id="saveUser"
+		parameterType="com.omicron.NotWorkingProject.model.object.Playground">
+		insert into ANAGRAFICA_UTENTI
+		(NOME_UTENTE,
+		COGNOME_UTENTE, INDIRIZZO_UTENTE,
+		CODICE_FISCALE_UTENTE,
+		CELLULARE_UTENTE, EMAIL_UTENTE)
+		values(
+		#{nomeUtente}, #{cognomeUtente},
+		#{indirizzoUtente},
+		#{codiceFiscaleUtente}, #{cellulareUtente},
+		#{emailUtente})
+	</select>
+
+	<select id="updateUser"
+		parameterType="com.omicron.NotWorkingProject.model.object.Playground">
+		update ANAGRAFICA_UTENTI
+		set
+		NOME_UTENTE=#{nomeUtente},COGNOME_UTENTE=#{cognomeUtente},INDIRIZZO_UTENTE=#{indirizzoUtente},
+		CODICE_FISCALE_UTENTE=#{codiceFiscaleUtente},CELLULARE_UTENTE=#{cellulareUtente},
+		EMAIL_UTENTE=#{emailUtente}
+		where ID_UTENTE=#{idUtente};
+	</select>
+
+	<select  id="deleteUserById" parameterType="int">
+	DELETE FROM 
+		 ANAGRAFICA_UTENTI WHERE ID_UTENTE =
+		#{idUtente};
+	</select>
+
+
+
+</mapper>

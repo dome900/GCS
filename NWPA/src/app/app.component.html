@@ -1,0 +1,45 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div style="text-align: center">
+	<h1 #prova>Welcome to {{ title }}!</h1>
+</div>
+
+
+<app-update-categorie></app-update-categorie>
+
+<app-create-categorie></app-create-categorie>
+
+<div class="table-responsive">
+<table #tabella class="table">
+	<thead class="thead-dark">
+
+		<tr>
+			<th>ID</th>
+			<th>nomeUtente</th>
+			<th>cognomeUtente</th>
+			<th>indirizzoUtente</th>
+			<th>codiceFiscaleUtente</th>
+			<th>cellulareUtente</th>
+			<th>emailUtente</th>
+
+
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let Cat of categorie">
+			<td>{{ Cat.idUtente }}</td>
+			<td>{{ Cat.nomeUtente }}</td>
+			<td>{{ Cat.cognomeUtente }}</td>
+			<td>{{ Cat.indirizzoUtente }}</td>
+			<td>{{ Cat.codiceFiscaleUtente }}</td>
+			<td>{{ Cat.cellulareUtente }}</td>
+			<td>{{ Cat.emailUtente }}</td>
+			<td><button (click)="onClickMe(Cat)">Del</button></td>
+			<td><app-delete-categorie  [childMessage]="{'prova' : Cat.idUtente}" ></app-delete-categorie></td>
+
+
+
+		</tr>
+	</tbody>
+</table>
+</div>
