@@ -32,7 +32,7 @@ public class PlaygroundController extends MainController{
 	@RequestMapping(value="/user", method = RequestMethod.GET, headers = "Accept=application/json")
 	public ResponseEntity<List<Playground>> listAllUser() {
 		List<Playground> list = playDAO.getLista();
-
+		System.out.println("prova");
 		if (list.size() == 0) {
 			return new ResponseEntity<List<Playground>>(HttpStatus.NO_CONTENT);
 			
