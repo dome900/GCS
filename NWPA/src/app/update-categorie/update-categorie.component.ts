@@ -60,14 +60,16 @@ export class UpdateCategorieComponent implements OnInit {
     console.log(id);
     console.log(categorie);
     alert('ALERT\n\n' + JSON.stringify(this.form11.value) + categorie.idUtente);
-    this.categorieservice.updateCategorie(categorie).subscribe(() => this.reload());
+    this.categorieservice.updateCategorie(categorie).subscribe(); // () => this.reload()
 
 
   }
 
   reload() {
     console.log('reload');
-    this.categorieservice.getCategorie().toPromise();
+    this.categorieservice.getCategorie().subscribe(
+      data => this.categorie = data
+    );
 
   }
 }
