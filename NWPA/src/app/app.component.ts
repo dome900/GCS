@@ -30,13 +30,13 @@ setInterval(() => {
        categorieservice =>  this.categorie = categorieservice
     );
   }
-
+/*
   ngDoCheck(): void {
     this.categorieservice.getCategorie().subscribe(
        categorieservice =>  this.categorie = categorieservice
     );
   }
-
+*/
   onClickMe(categorie: Categorie) {
 
    this.categorieservice.deleteCategorie(categorie.idUtente)

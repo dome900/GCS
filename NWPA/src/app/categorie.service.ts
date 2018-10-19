@@ -2,8 +2,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Categorie } from './Categorie';
-import 'rxjs/add/operator/catch';
-import { Observable } from 'rxjs/internal/Observable';
+
+
 
 @Injectable({
     providedIn: 'root'
@@ -14,13 +14,17 @@ export class CategorieService {
 
     constructor(private http: HttpClient) { }
 
-    getCategorie(): Observable<Categorie[]> {
-        return this.http.get<Categorie[]>('http://localhost:8080/NotWorkingProject/user/')
-        .catch(this.errorHandler);
+    getCategorie() {
+        return this.http.get('http://localhost:8080/NotWorkingProject/user/');
+    }
+
+    /*getCategorie(): Observable<Categorie[]> {
+        return this.http.get<Categorie[]>('http://localhost:8080/NotWorkingProject/user/');
+       // .catch(this.errorHandler);
     }
     errorHandler(error: HttpErrorResponse) {
         return Observable.throw(this.error.message || 'error');
-    }
+    }*/
     postCategorie(categorie) {
         return this.http.post('http://localhost:8080/NotWorkingProject/user/', categorie);
 
