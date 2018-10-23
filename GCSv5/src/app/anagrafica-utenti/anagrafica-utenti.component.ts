@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { AnagraficaService } from '../anagrafica.service';
 import { Utenti } from '../utenti';
-
+import { FormBuilder, FormGroup, Validators, AbstractControl, NG_ASYNC_VALIDATORS } from '@angular/forms';
 
 @Component({
   selector: 'app-anagrafica-utenti',
@@ -9,19 +9,32 @@ import { Utenti } from '../utenti';
   styleUrls: ['./anagrafica-utenti.component.css']
 })
 
-export class AnagraficaUtentiComponent implements AfterViewInit {
-  utenti: Utenti[];
+export class AnagraficaUtentiComponent implements OnInit {
 
-  constructor(private anagraficaService: AnagraficaService) {
+  utenti: Utenti[];
+  form: FormGroup;
+  constructor(private anagraficaService: AnagraficaService, private formBuilder: FormBuilder) {
 
   }
 
 
-  ngAfterViewInit() {
+  ngOnInit() {
     this.anagraficaService.getCategorie().subscribe(
       anagraficaService =>  this.utenti = anagraficaService
     );
+    this.form = this.formBuilder.group({
+      idUtente: ['', [Validators.required]]
+    });
   }
+  /*checkIdUtente(control: AbstractControl) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (control.value === '71') {
+            resolve({ idUtenteIsTaken: true });
+        } else {resolve(null); }
+          }, 2000);
+    });
+  }*/
 
   onClickMe(utenti: Utenti) {
 

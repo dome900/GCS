@@ -1,48 +1,68 @@
 <div class="col-lg-12">
 
-  <form (submit)="addUser($event)">
-    <thead>
-      <tr>
-        <th><input id="idUtente" type="text" placeholder="idUtente"></th>
-        <th><input id="nomeUtente" type="text" placeholder="nomeUtente"></th>
-        <th><input id="cognomeUtente" type="text" placeholder="cognomeUtente"></th>
-        <th><input id="indirizzoUtente" type="text" placeholder="indirizzoUtente"></th>
-        <th><input id="codiceFiscaleUtente" type="text" placeholder="codiceFiscaleUtente"></th>
-        <th><input id="cellulareUtente" type="text" placeholder="cellulareUtente"></th>
-        <th><input id="emailUtente" type="text" placeholder="emailUtente"></th>
-        <tr *ngFor="let UtTable of utenti"></tr>
-        <th><input  *ngFor="type="Submit" value="submit"></th>
-        
-      </tr>
-    </thead>
-  </form>
+  <form [formGroup]="form" (submit)="addUser($event)">
+
+    <div class="row">
+      <div class="col">
+        <input class="form-control" type="text" id="idUtente" name="idUtente" placeholder="ID" formControlName="idUtente" />
+      </div>
+      <div class="col">
+        <input class="form-control" type="text" id="nomeUtente" name="nomeUtente" placeholder="Nome" />
+      </div>
+      <div class="col">
+        <input class="form-control" type="text" id="cognomeUtente" name="cognomeUtente" placeholder="Cognome" />
+      </div>
+    </div>
+    &nbsp;
+    <div class="row">
+      <div class="col">
+        <input class="form-control" type="text" id="codiceFiscaleUtente" name="codiceFiscaleUtente" placeholder="codiceFiscaleUtente" />
+      </div>
+      <div class="col">
+        <input class="form-control" type="text" id="cellulareUtente" name="cellulareUtente" placeholder="cellulareUtente" />
+      </div>
+      <div class="col">
+        <input class="form-control" type="text" id="emailUtente" name="emailUtente" placeholder="emailUtente" />
+      </div>
+    </div>
+    &nbsp;
+    <div class="row">
+      <div class="col">
+        <button class="btn btn-secondary" type="submit" [disabled]="form.invalid">MODIFICA</button>
+      </div>
+      <div class="col">
+      <button class="btn btn-secondary" type="submit" [disabled]="form.valid">CREA</button>
+    </div>
+
+</div>
+</form>
+&nbsp;  
 
 
 
-
-  <table #tabella class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th>ID</th>
-        <th>nomeUtente</th>
-        <th>cognomeUtente</th>
-        <th>indirizzoUtente</th>
-        <th>codiceFiscaleUtente</th>
-        <th>cellulareUtente</th>
-        <th>emailUtente</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let UtTable of utenti">
-        <td>{{ UtTable.idUtente }}</td>
-        <td>{{ UtTable.nomeUtente }}</td>
-        <td>{{ UtTable.cognomeUtente }}</td>
-        <td>{{ UtTable.indirizzoUtente }}</td>
-        <td>{{ UtTable.codiceFiscaleUtente }}</td>
-        <td>{{ UtTable.cellulareUtente }}</td>
-        <td>{{ UtTable.emailUtente }}</td>
-        <td><button (click)="onClickMe(UtTable)">Del</button></td>
-      </tr>
-    </tbody>
-  </table>
+<table #tabella class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>ID</th>
+      <th>nomeUtente</th>
+      <th>cognomeUtente</th>
+      <th>indirizzoUtente</th>
+      <th>codiceFiscaleUtente</th>
+      <th>cellulareUtente</th>
+      <th>emailUtente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let UtTable of utenti">
+      <td>{{ UtTable.idUtente }}</td>
+      <td>{{ UtTable.nomeUtente }}</td>
+      <td>{{ UtTable.cognomeUtente }}</td>
+      <td>{{ UtTable.indirizzoUtente }}</td>
+      <td>{{ UtTable.codiceFiscaleUtente }}</td>
+      <td>{{ UtTable.cellulareUtente }}</td>
+      <td>{{ UtTable.emailUtente }}</td>
+      <td><button (click)="onClickMe(UtTable)">Del</button></td>
+    </tr>
+  </tbody>
+</table>
 </div>

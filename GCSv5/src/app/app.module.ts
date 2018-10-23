@@ -5,15 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AnagraficaUtentiComponent } from './anagrafica-utenti/anagrafica-utenti.component';
 import { ImmobiliComponent } from './immobili/immobili.component';
+import { ErrorComponent } from './error/error.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     AnagraficaUtentiComponent,
-    ImmobiliComponent
+    ImmobiliComponent,
+    ErrorComponent,
+
   ],
   imports: [
-    BrowserModule,
+    BrowserModule /* or CommonModule */,
+    FormsModule, ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule
   ],
