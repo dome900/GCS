@@ -23,7 +23,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.omicron.NotWorkingProject.model.DAO.PlayDAO;
 import com.omicron.NotWorkingProject.model.object.Playground;
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class PlaygroundController extends MainController{
 	@Autowired

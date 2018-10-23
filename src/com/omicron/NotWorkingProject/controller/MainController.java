@@ -13,7 +13,7 @@ import com.omicron.NotWorkingProject.model.object.Playground;
 
 
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @Controller
 public class MainController extends AbstractController {	
 	

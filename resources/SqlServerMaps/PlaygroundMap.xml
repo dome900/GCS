@@ -20,7 +20,8 @@
 	<select id="getLista" resultMap="PlaygroundMap">
 		select ID_UTENTE,
 		NOME_UTENTE,COGNOME_UTENTE,INDIRIZZO_UTENTE,CODICE_FISCALE_UTENTE,CELLULARE_UTENTE,EMAIL_UTENTE
-		from [PROVA_PROGETTO].[dbo].[ANAGRAFICA_UTENTI]
+		from [PROVA_PROGETTO].[dbo].[ANAGRAFICA_UTENTI] where DATA_FINE =
+		(CONVERT([datetime],'2099.12.31',(102)))
 	</select>
 
 	<select id="findById" resultMap="PlaygroundMap"
@@ -28,7 +29,8 @@
 		select ID_UTENTE,
 		NOME_UTENTE,COGNOME_UTENTE,INDIRIZZO_UTENTE,CODICE_FISCALE_UTENTE,CELLULARE_UTENTE,EMAIL_UTENTE
 		from [PROVA_PROGETTO].[dbo].[ANAGRAFICA_UTENTI] where ID_UTENTE =
-		(#{id})
+		(#{id}) and DATA_FINE =
+		(CONVERT([datetime],'2099.12.31',(102)))
 	</select>
 
 	<select id="isUserExist" resultMap="PlaygroundMap"
