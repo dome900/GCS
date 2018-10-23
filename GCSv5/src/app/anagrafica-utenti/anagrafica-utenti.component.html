@@ -1,10 +1,12 @@
 <div class="col-lg-12">
 
   <form [formGroup]="form" (submit)="addUser($event)">
-
+    <div class="col">
+      <input class="form-control" type="number" id="idUtente" name="idUtente" placeholder="ID" formControlName="idUtente" />
+    </div>
     <div class="row">
       <div class="col">
-        <input class="form-control" type="text" id="idUtente" name="idUtente" placeholder="ID" formControlName="idUtente" />
+        <input class="form-control" type="text" id="indirizzoUtente" name="indirizzoUtente" placeholder="indirizzoUtente" />
       </div>
       <div class="col">
         <input class="form-control" type="text" id="nomeUtente" name="nomeUtente" placeholder="Nome" />
@@ -19,7 +21,7 @@
         <input class="form-control" type="text" id="codiceFiscaleUtente" name="codiceFiscaleUtente" placeholder="codiceFiscaleUtente" />
       </div>
       <div class="col">
-        <input class="form-control" type="text" id="cellulareUtente" name="cellulareUtente" placeholder="cellulareUtente" />
+        <input class="form-control" type="number" id="cellulareUtente" name="cellulareUtente" placeholder="cellulareUtente" />
       </div>
       <div class="col">
         <input class="form-control" type="text" id="emailUtente" name="emailUtente" placeholder="emailUtente" />
@@ -31,38 +33,38 @@
         <button class="btn btn-secondary" type="submit" [disabled]="form.invalid">MODIFICA</button>
       </div>
       <div class="col">
-      <button class="btn btn-secondary" type="submit" [disabled]="form.valid">CREA</button>
+        <button class="btn btn-secondary" type="submit" [disabled]="form.valid">CREA</button>
+      </div>
+
     </div>
-
-</div>
-</form>
-&nbsp;  
+  </form>
+  &nbsp;
 
 
 
-<table #tabella class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th>ID</th>
-      <th>nomeUtente</th>
-      <th>cognomeUtente</th>
-      <th>indirizzoUtente</th>
-      <th>codiceFiscaleUtente</th>
-      <th>cellulareUtente</th>
-      <th>emailUtente</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let UtTable of utenti">
-      <td>{{ UtTable.idUtente }}</td>
-      <td>{{ UtTable.nomeUtente }}</td>
-      <td>{{ UtTable.cognomeUtente }}</td>
-      <td>{{ UtTable.indirizzoUtente }}</td>
-      <td>{{ UtTable.codiceFiscaleUtente }}</td>
-      <td>{{ UtTable.cellulareUtente }}</td>
-      <td>{{ UtTable.emailUtente }}</td>
-      <td><button (click)="onClickMe(UtTable)">Del</button></td>
-    </tr>
-  </tbody>
-</table>
+  <table #tabella class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>nomeUtente</th>
+        <th>cognomeUtente</th>
+        <th>indirizzoUtente</th>
+        <th>codiceFiscaleUtente</th>
+        <th>cellulareUtente</th>
+        <th>emailUtente</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let UtTable of utenti">
+        <td>{{ UtTable.idUtente }}</td>
+        <td>{{ UtTable.nomeUtente }}</td>
+        <td>{{ UtTable.cognomeUtente }}</td>
+        <td>{{ UtTable.indirizzoUtente }}</td>
+        <td>{{ UtTable.codiceFiscaleUtente }}</td>
+        <td>{{ UtTable.cellulareUtente }}</td>
+        <td>{{ UtTable.emailUtente }}</td>
+        <td><button (click)="onClickMe(UtTable)">Del</button></td>
+      </tr>
+    </tbody>
+  </table>
 </div>

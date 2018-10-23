@@ -20,7 +20,7 @@ export class AnagraficaUtentiComponent implements OnInit {
 
   ngOnInit() {
     this.anagraficaService.getCategorie().subscribe(
-      anagraficaService =>  this.utenti = anagraficaService
+      anagraficaService => this.utenti = anagraficaService
     );
     this.form = this.formBuilder.group({
       idUtente: ['', [Validators.required]]
@@ -38,19 +38,19 @@ export class AnagraficaUtentiComponent implements OnInit {
 
   onClickMe(utenti: Utenti) {
 
-   this.anagraficaService.deleteCategorie(utenti.idUtente)
-   .subscribe(() => {
-    this.reload();
-   });
+    this.anagraficaService.deleteCategorie(utenti.idUtente)
+      .subscribe(() => {
+        this.reload();
+      });
   }
 
   reload() {
     this.anagraficaService.getCategorie().subscribe(
-      anagraficaService =>  this.utenti = anagraficaService
+      anagraficaService => this.utenti = anagraficaService
     );
   }
 
-// add user
+  // add user
 
   addUser(event) {
     event.preventDefault();
@@ -78,13 +78,15 @@ export class AnagraficaUtentiComponent implements OnInit {
       this.anagraficaService.updateCategorie(utenti).subscribe(() => {
         this.reload();
 
-       });
+      });
+    }
+    if (isNaN(idUtente)) {
+      this.anagraficaService.postCategorie(utenti).subscribe(() => {
+        this.reload();
+
+      });
     }
 
-    this.anagraficaService.postCategorie(utenti).subscribe(() => {
-      this.reload();
-
-     });
-    }
   }
+}
 
