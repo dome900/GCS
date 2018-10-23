@@ -7,6 +7,7 @@ import { AnagraficaUtentiComponent } from './anagrafica-utenti/anagrafica-utenti
 import { ImmobiliComponent } from './immobili/immobili.component';
 import { ErrorComponent } from './error/error.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     BrowserModule /* or CommonModule */,
     FormsModule, ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
