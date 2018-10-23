@@ -8,6 +8,7 @@ import { ImmobiliComponent } from './immobili/immobili.component';
 import { ErrorComponent } from './error/error.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     AnagraficaUtentiComponent,
     ImmobiliComponent,
     ErrorComponent,
+    LoginComponent,
 
   ],
   imports: [
