@@ -84,7 +84,7 @@ corsHandler() {
     const emailUtente: string = target.querySelector('#emailUtente').value;
 
     const utenti: Utenti = {
-      SearchByNamePipe: nomeUtente,
+
       idUtente: idUtente,
       nomeUtente: nomeUtente,
       cognomeUtente: cognomeUtente,
@@ -93,20 +93,22 @@ corsHandler() {
       cellulareUtente: cellulareUtente,
       emailUtente: emailUtente
     };
-
+    console.log(utenti.idUtente);
     console.log(utenti);
-    if (idUtente != null) {
-      this.anagraficaService.updateCategorie(utenti).subscribe(() => {
-        this.reload();
 
-      });
-    }
-    if (isNaN(idUtente)) {
+    if (!isNaN(idUtente)) {
       this.anagraficaService.postCategorie(utenti).subscribe(() => {
         this.reload();
-
+        console.log('post');
       });
     }
+    if (idUtente > 0 ) {
+      this.anagraficaService.updateCategorie(utenti).subscribe(() => {
+        this.reload();
+        console.log('put');
+      });
+    }
+
 
   }
 }

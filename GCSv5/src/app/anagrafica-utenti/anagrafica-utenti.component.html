@@ -58,7 +58,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let UtTable of utenti | searchByName : searchText | paginate:  {id: 'listing_pagination',
+      <tr *ngFor="let UtTable of utenti  | paginate:  {id: 'listing_pagination',
       itemsPerPage: 5,
       currentPage: page,
       totalItems: totalRec}">
