@@ -1,7 +1,9 @@
+
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { AnagraficaService } from '../anagrafica.service';
 import { Utenti } from '../utenti';
 import { FormBuilder, FormGroup, Validators, AbstractControl, NG_ASYNC_VALIDATORS } from '@angular/forms';
+
 
 @Component({
   selector: 'app-anagrafica-utenti',
@@ -16,6 +18,24 @@ export class AnagraficaUtentiComponent implements OnInit {
   constructor(private anagraficaService: AnagraficaService, private formBuilder: FormBuilder) {
 
   }
+
+corsHandler() {
+        const headers = new Headers();
+        headers.set('Access-Control-Allow-Origin', '*');
+        headers.set('Access-Control-Allow-Headers', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+        headers.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, x-auth');
+
+
+/*
+        return this.http.post(this.url, body,{
+            headers: headers, responseType:response
+        }).toPromise().then( res=> {
+            console.log(res.json());
+            this.shadre.changeLoading(false);
+            return res.json().news;
+        })
+        */
+    }
 
 
   ngOnInit() {
@@ -64,6 +84,7 @@ export class AnagraficaUtentiComponent implements OnInit {
     const emailUtente: string = target.querySelector('#emailUtente').value;
 
     const utenti: Utenti = {
+      SearchByNamePipe: nomeUtente,
       idUtente: idUtente,
       nomeUtente: nomeUtente,
       cognomeUtente: cognomeUtente,

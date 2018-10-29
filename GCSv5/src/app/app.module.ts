@@ -9,6 +9,7 @@ import { ErrorComponent } from './error/error.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { LoginComponent } from './login/login.component';
+import { SearchByNamePipe } from './anagrafica-utenti/search-by-name.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { LoginComponent } from './login/login.component';
     ImmobiliComponent,
     ErrorComponent,
     LoginComponent,
+    SearchByNamePipe,
 
   ],
   imports: [

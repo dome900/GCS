@@ -47,20 +47,21 @@
     <thead class="thead-dark">
       <tr>
         <th >ID</th>
-        <th >nomeUtente</th>
+        <th ><input [(ngModel)]="searchText" placeholder="nomeUtente"></th>
         <th >cognomeUtente</th>
         <th >indirizzoUtente</th>
         <th >codiceFiscaleUtente</th>
         <th >cellulareUtente</th>
         <th >emailUtente</th>
         <th >DEL</th>
+        
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let UtTable of utenti | paginate:  {id: 'listing_pagination',
+      <tr *ngFor="let UtTable of utenti | searchByName : searchText | paginate:  {id: 'listing_pagination',
       itemsPerPage: 5,
       currentPage: page,
-      totalItems: totalRec }">
+      totalItems: totalRec}">
         <td scope="row">{{ UtTable.idUtente }}</td>
         <td>{{ UtTable.nomeUtente }}</td>
         <td>{{ UtTable.cognomeUtente }}</td>

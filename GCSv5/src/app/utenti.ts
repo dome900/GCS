@@ -1,4 +1,5 @@
 export interface Utenti {
+  SearchByNamePipe: any;
     nomeUtente: string;
     cognomeUtente: string;
     indirizzoUtente: string;
